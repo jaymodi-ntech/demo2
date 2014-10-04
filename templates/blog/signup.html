@@ -6,20 +6,20 @@
 </head>
 <body>
 
-<form action="{% url signup %}" method="post" enctype="multipart/form-data">
+<form action="{% url 'signup' %}" method="post" enctype="multipart/form-data">
 {% csrf_token %}
-    <input type="text" placeholder="Username" name="name" value=""/>Enter Name:
-     <select>
+    Enter Name:<input type="text" placeholder="Your name" name="name" value=""/><br>
+     Gender :<select name="gen">
   <option value="m">Male</option>
   <option value="f">Female</option>
-</select>
-    <input type="text" placeholder="Age" name="age" value=""/>Enter Age:
-    <input type="text" placeholder="Email" name="adress" value=""/>Enter Adress:
-    <input type="text" placeholder="City" name="city" value=""/>Enter City:
-    <input type="text" placeholder="Contact" name="contact" value=""/>Enter Contact No:
-	<input type="text" placeholder="Username" name="username" value=""/>Enter Username:
-    <input type="password" placeholder="password" name="password" value=""/> Enter Password:
-    <input type="submit" name="Login"/>
+</select><br>
+    Enter Age:<input type="text" placeholder="Age" name="age" value=""/> <br>
+    Enter Adress:<input type="text" placeholder="Email" name="adress" value=""/><br>
+    Enter City:<input type="text" placeholder="City" name="city" value=""/><br>
+    Enter Contact No:<input type="text" placeholder="Contact" name="contact" value=""/><br>
+	Enter Username:<input type="text" placeholder="Username" name="username" value=""/><br>
+    Enter Password:<input type="password" placeholder="password" name="password" value=""/><br>
+    <input type="submit" name="Login" value="Sign Me Up..!"/><br>
 </form>
 
 </body>

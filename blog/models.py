@@ -8,11 +8,11 @@ class blog_user(models.Model):
         ('f', 'Female'),
     )
     name = models.CharField( max_length=30)
-    address = models.TextField(max_length= 70)
-    age = models.IntegerField(max_length= 10)
-    contact= models.IntegerField(max_length=15)
+    address = models.TextField(blank=True,null=True)
+    age = models.IntegerField()
+    contact= models.IntegerField()
     city = models.CharField(max_length= 30)
-    gender=models.CharField(max_length=1, choices=gender_choice)
+    gender=models.CharField(max_length=1, choices=gender_choice,blank=True,null=True)
     username = models.CharField(max_length= 25)
     password = models.CharField(max_length=15)
 
