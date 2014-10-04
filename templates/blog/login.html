@@ -6,5 +6,12 @@
 </head>
 <body>
 
+<form action="{% url 'Login' %}" method="post" enctype="multipart/form-data">
+
+				<input type="text" placeholder="Username" name="username" value=""/>Enter Username:
+    				<input type="password" placeholder="password" name="password" value=""/> Enter Password:
+    				<input type="submit" name="Login"/>
+</form>
+
 </body>
 </html>
