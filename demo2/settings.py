@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -27,16 +28,18 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = (
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'django.contrib.auth', # this line should be uncommented they will help to build auth app
+    'django.contrib.contenttypes',# this line should be here and uncommented
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'auth_app'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,10 +58,10 @@ WSGI_APPLICATION = 'demo2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
-TEMPLATE_DIRS = {
-        "templates/blog"
-}
+TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),)
+# TEMPLATE_DIRS = {
+#         "templates/blog","template/auth_app",
+# }
 
 DATABASES = {
     'default': {

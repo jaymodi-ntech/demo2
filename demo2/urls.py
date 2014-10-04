@@ -1,10 +1,14 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django import views
+from auth_app import views
 admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'demo2.views.home', name='home'),
     url(r'^blog/', include('blog.urls')),
+    url(r'^auth/', include('auth_app.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^register/$', views.register, name='register'), # ADD NEW PATTERN!
 )
