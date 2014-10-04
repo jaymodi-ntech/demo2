@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{#{{ session }}#}
+
+{#{% if session %}#}
+
+    {% if context_data %}
+
+        {% for user in context_data %}
+<h1>Welcome,{{ user.name }} </h1>
+<h2>Address :{{ user.address }} </h2>
+<h2>Age :{{ user.age }} </h2>
+<h2>Contact :{{ user.contact }} </h2>
+<h2>Gender :{{ user.gender }} </h2>
+        {% endfor %}
+        <h2><a href="{% url 'Logout' %}">Logout</a></h2>
+    {% else %}
+
+
+    {% endif %}
+
+{#{% endif %}#}
+
+</body>
+</html>
