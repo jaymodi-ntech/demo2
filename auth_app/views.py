@@ -3,6 +3,10 @@ from django.shortcuts import *
 from auth_app.forms import UserForm, UserProfileForm
 from django.contrib.auth.models import *
 from django.views.generic import View
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth import logout
+from auth_app.models import UserProfile
 
 # class register_view(View):
 #     template1= "some.html"
@@ -78,3 +82,36 @@ def register(request):
             'auth_app/auth_signup.html',
             {'user_form': user_form, 'profile_form': profile_form, 'registered': registered},
             context)
+
+
+def user_login(request):
+    context = RequestContext(request)
+
+    if request.method == 'POST':
+
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        print user
+        if user:
+            if user.is_active:
+                login(request, user)
+                # data = User.objects.filter(username = username)
+                # context_data = {'context_data': data}
+                # return render(request, 'auth_app/welcome.html', context_data)
+                return render_to_response('auth_app/welcome.html')
+                # return HttpResponseRedirect('/auth_app/welcome.html')
+            else:
+                return HttpResponse("Your MJ account is disabled.")
+        else:
+            print "Invalid login details: {0}, {1}".format(username, password)
+            return HttpResponse("Invalid login details supplied.")
+
+    else:
+
+        return render_to_response('auth_app/auth_login.html', context)
+
+def logout_view(request):
+    logout(request)
+    return render_to_response('auth_app/logout.html')
+

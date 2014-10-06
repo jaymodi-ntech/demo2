@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>Welcome to your Profile</h1>
+{#<h2>Welcome, {{ context_data.username }}</h2>#}
+
+<h1> <a href="{% url 'logout' %}">Logout here </a></h1>
+{% csrf_token %}
+</body>
+</html>
